@@ -1,1 +1,0 @@
-# json-schema-describes-subset

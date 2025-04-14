@@ -1,0 +1,7 @@
+{
+  "extends": "@jobohner/ts-projects-config-presets/tsconfig.json",
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types"],
+    "paths": { "json-schema-describes-subset": ["./src/index.js"] }
+  }
+}
