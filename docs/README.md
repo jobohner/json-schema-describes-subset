@@ -1,6 +1,6 @@
 # json-schema-describes-subset
 
-`0.0.0`
+`0.1.0`
 
 <!-- package-json-description-start -->
 
