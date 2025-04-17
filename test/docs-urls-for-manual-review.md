@@ -139,9 +139,21 @@ the documentation files, so they can be checked manually.
 
 - [/docs/customization.md#simplify](/docs/customization.md#simplify)
 
-- [/src/custom-plugins/format-plugin/format-plugin.ts#L165](/src/custom-plugins/format-plugin/format-plugin.ts#L165)
+- [/src/custom-plugins/format-plugin/format-plugin.ts#L166](/src/custom-plugins/format-plugin/format-plugin.ts#L166)
 
-- [/src/custom-plugins/format-plugin/format-plugin.ts#L175](/src/custom-plugins/format-plugin/format-plugin.ts#L175)
+- [/src/custom-plugins/format-plugin/format-plugin.ts#L201](/src/custom-plugins/format-plugin/format-plugin.ts#L201)
+
+- <https://ajv.js.org/packages/ajv-formats.html>
+
+- [/src/documents/contradictions.md](/src/documents/contradictions.md)
+
+- [/src/atomic-schema/atomic-schema.ts#L3](/src/atomic-schema/atomic-schema.ts#L3)
+
+- [/src/built-in-plugins/type.ts#L20](/src/built-in-plugins/type.ts#L20)
+
+- [/src/built-in-plugins/number/number.ts#L28](/src/built-in-plugins/number/number.ts#L28)
+
+- [/src/built-in-plugins/number/number.ts#L46](/src/built-in-plugins/number/number.ts#L46)
 
 - [/docs/README.md#schemadescribessubset](/docs/README.md#schemadescribessubset)
 

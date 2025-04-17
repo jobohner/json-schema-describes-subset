@@ -75,6 +75,7 @@ export class StringFormatAtomicSchema<
   }
 }
 
+// TODO: derive further atomic schemas from format, e. g. `minLength`
 export const stringFormatLogicalCombinations: Record<
   StringFormatName,
   LogicalCombination
@@ -169,6 +170,31 @@ export type FormatPlugin = [
 ]
 
 /**
+ * Adds support for the `format` values provided by
+ * [`ajv-formats`](https://ajv.js.org/packages/ajv-formats.html).
+ *
+ * `format`s that apply to strings are only compared for equality, so that only
+ * schemas like
+ *
+ * ```json
+ * {
+ *   "allOf": [
+ *     { "format": "email" },
+ *     { "not": { "format": "email" } }
+ *   ]
+ * }
+ * ```
+ *
+ * include a [contradiction](/src/documents/contradictions.md).
+ *
+ * `format`s that apply to numbers are transformed to equivalent
+ * {@link AtomicSchemaObject}s like {@link MultipleOfAtomicSchema},
+ * {@link MinimumAtomicSchema} or {@link MaximumAtomicSchema}.
+ *
+ * @example
+ *
+ * {@includeCode ./examples/snapshots/format-plugin-0.example.ts}
+ *
  * @privateRemarks
  * TODO: return type of {@link toDNF}
  */

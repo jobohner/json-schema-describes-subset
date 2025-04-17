@@ -332,7 +332,50 @@ does not satisfy the original schema. The returned value can then be returned by
 ### `formatPlugin`
 
 > `const` **formatPlugin**:
-> [`FormatPlugin`](/src/custom-plugins/format-plugin/format-plugin.ts#L165)
+> [`FormatPlugin`](/src/custom-plugins/format-plugin/format-plugin.ts#L166)
 
 Defined in:
-[custom-plugins/format-plugin/format-plugin.ts:175](/src/custom-plugins/format-plugin/format-plugin.ts#L175)
+[custom-plugins/format-plugin/format-plugin.ts:201](/src/custom-plugins/format-plugin/format-plugin.ts#L201)
+
+Adds support for the `format` values provided by
+[`ajv-formats`](https://ajv.js.org/packages/ajv-formats.html).
+
+`format`s that apply to strings are only compared for equality, so that only
+schemas like
+
+```json
+{
+  "allOf": [{ "format": "email" }, { "not": { "format": "email" } }]
+}
+```
+
+include a [contradiction](/src/documents/contradictions.md).
+
+`format`s that apply to numbers are transformed to equivalent
+[AtomicSchemaObject](/src/atomic-schema/atomic-schema.ts#L3)s like
+[MultipleOfAtomicSchema](/src/built-in-plugins/type.ts#L20),
+[MinimumAtomicSchema](/src/built-in-plugins/number/number.ts#L28) or
+[MaximumAtomicSchema](/src/built-in-plugins/number/number.ts#L46).
+
+#### Example
+
+```ts
+import { schemaDescribesSubset } from 'json-schema-describes-subset'
+import { formatPlugin } from 'json-schema-describes-subset/custom-plugins/format-plugin'
+
+console.log(
+  schemaDescribesSubset(
+    { format: 'email' },
+    { format: 'date-time' },
+    { plugins: [formatPlugin] },
+  ),
+) // logs: `null`
+
+console.log(
+  schemaDescribesSubset(
+    { type: 'integer', minimum: 0, maximum: 10 },
+    { format: 'int32' },
+    { plugins: [formatPlugin] },
+  ),
+) // logs: `true`
+```

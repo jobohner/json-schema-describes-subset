@@ -2,6 +2,11 @@
   "extends": "@jobohner/ts-projects-config-presets/tsconfig.json",
   "compilerOptions": {
     "typeRoots": ["./node_modules/@types"],
-    "paths": { "json-schema-describes-subset": ["./src/index.js"] }
+    "paths": {
+      "json-schema-describes-subset": ["./src/index.js"],
+      "json-schema-describes-subset/custom-plugins/format-plugin": [
+        "./src/custom-plugins/format-plugin/index.js"
+      ]
+    }
   }
 }
