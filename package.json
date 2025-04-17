@@ -41,7 +41,7 @@
     "prepublishOnly": "git push --follow-tags"
   },
   "devDependencies": {
-    "@jobohner/ts-projects-config-presets": "^0.3.0",
+    "@jobohner/ts-projects-config-presets": "^0.5.0",
     "@types/lodash": "^4.17.16",
     "@types/mdast": "^4.0.4",
     "@types/unist": "^3.0.3",

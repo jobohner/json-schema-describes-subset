@@ -1,7 +1,6 @@
 import { defineConfig, mergeConfig } from 'vitest/config'
 import tsconfigPaths from 'vite-tsconfig-paths'
-// TODO: proper import
-import viteConfig from './node_modules/@jobohner/ts-projects-config-presets/vitest.config.js'
+import viteConfig from '@jobohner/ts-projects-config-presets/vitest.config.js'
 
 export default mergeConfig(
   viteConfig,
