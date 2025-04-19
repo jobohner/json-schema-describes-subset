@@ -1,6 +1,6 @@
 {
   "name": "json-schema-describes-subset",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "author": "Johannes Bohner <johannes.bohner@gmail.com>",
   "description": "Tools for static JSON schema analysis, including functions to determine if one schema describes a subset of another or if a schema describes the empty set or to convert a schema to its disjunctive normal form (DNF).",

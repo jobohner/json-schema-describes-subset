@@ -1,6 +1,6 @@
 # json-schema-describes-subset
 
-`0.2.0`
+`0.3.0`
 
 This package provides tools for static JSON schema analysis.
 
