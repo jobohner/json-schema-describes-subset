@@ -366,7 +366,7 @@ follows the same goal as this function using a slightly different approach.
 #### How does this work?
 
 The implementation utilizes [schemaDescribesEmptySet](#schemadescribesemptyset)
-and the fact that A ⊆ B if and only if A ∩ ¬B = ∅. (That relation should be
+and the fact that A ⊆ B if and only if A ∩ ¬B = ∅. (That relation should be
 obvious if illustrated in a venn diagram.)
 
 It basically looks similar to this:
