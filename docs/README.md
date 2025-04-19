@@ -616,10 +616,11 @@ be returned. See [JSONSchema](#jsonschema) for details.
 
 > **schemaDescribesEmptySet**(`schema`, `options?`): `null` | `boolean`
 
-Defined in: [dnf/dnf.ts:600](/src/dnf/dnf.ts#L600)
+Defined in: [dnf/dnf.ts:601](/src/dnf/dnf.ts#L601)
 
 Tries to determine whether the provided JSON Schema is unsatisfiable and
-therefore describes the empty set.
+therefore describes the empty set. In that case, the schema would be equivalent
+to the `false` schema.
 
 ### Parameters
 
@@ -911,7 +912,7 @@ is logically deeply nested.
 
 > **schemasAreEquivalent**(`schemaA`, `schemaB`, `options?`): `null` | `boolean`
 
-Defined in: [derived/derived.ts:59](/src/derived/derived.ts#L59)
+Defined in: [derived/derived.ts:60](/src/derived/derived.ts#L60)
 
 Tries to determine whether the provided schemas accept the exact same set of
 data values.
@@ -947,9 +948,10 @@ could be useful to help create tests.
 
 > **schemaDescribesUniverse**(`schema`, `options?`): `null` | `boolean`
 
-Defined in: [derived/derived.ts:29](/src/derived/derived.ts#L29)
+Defined in: [derived/derived.ts:30](/src/derived/derived.ts#L30)
 
-Tries to determine whether the provided schema accepts any JSON value.
+Tries to determine whether the provided schema accepts any JSON value. In that
+case, the schema would be equivalent to the `true` or `{}` schema.
 
 ### Parameters
 

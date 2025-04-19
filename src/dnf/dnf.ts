@@ -568,7 +568,8 @@ export function rawDNFDescribesEmptySet(
 
 /**
  * Tries to determine whether the provided JSON Schema is unsatisfiable and
- * therefore describes the empty set.
+ * therefore describes the empty set. In that case, the schema would be
+ * equivalent to the `false` schema.
  *
  * @returns
  *

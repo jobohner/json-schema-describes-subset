@@ -8,7 +8,8 @@ import type { Options } from '../options/index.js'
 import { resolveSchemaArgumentsIds } from '../id/index.js'
 
 /**
- * Tries to determine whether the provided schema accepts any JSON value.
+ * Tries to determine whether the provided schema accepts any JSON value. In
+ * that case, the schema would be equivalent to the `true` or `{}` schema.
  *
  * @returns
  *
