@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "type": "module",
   "author": "Johannes Bohner <johannes.bohner@gmail.com>",
-  "description": "This package provides tools for static JSON schema analysis. One of these is its eponymous function schemaDescribesSubset which tries to determine whether all data values that satisfy one JSON schema also satisfy another one (which would mean that the first schema described a subset of the set of data values that satisfy the second schema).",
+  "description": "Tools for static JSON schema analysis, including functions to determine if one schema describes a subset of another or if a schema describes the empty set or to convert a schema to its disjunctive normal form (DNF).",
   "exports": {
     ".": "./dist/index.js",
     "./custom-plugins/format-plugin": "./dist/custom-plugins/format-plugin/index.js",

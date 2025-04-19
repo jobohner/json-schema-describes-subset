@@ -2,8 +2,6 @@
 
 `0.2.0`
 
-<!-- package-json-description-start -->
-
 This package provides tools for static JSON schema analysis.
 
 One of these is its eponymous function
@@ -11,8 +9,6 @@ One of these is its eponymous function
 all data values that satisfy one JSON schema also satisfy another one (which
 would mean that the first schema described a subset of the set of data values
 that satisfy the second schema).
-
-<!-- package-json-description-end -->
 
 Other functions that might be useful include
 
