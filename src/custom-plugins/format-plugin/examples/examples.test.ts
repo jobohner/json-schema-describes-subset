@@ -18,13 +18,14 @@ describe('format-plugin examples', () => {
     consoleLogMock.mockReset()
   })
 
-  const example0Filename = 'format-plugin-0.example.ts'
+  const example0FilenameBase = 'format-plugin-0.example'
+  const example0Filename = `${example0FilenameBase}.ts`
   test(`'${example0Filename}' logs the expected results`, async () => {
-    await import(`./${example0Filename}`)
+    await import(`./example-files/${example0FilenameBase}.ts`)
 
     await expect(
       await addConsoleLogResultComments(
-        path.join(import.meta.dirname, example0Filename),
+        path.join(import.meta.dirname, 'example-files', example0Filename),
         consoleLogMock.mock.calls,
         tsConfigFilename,
       ),

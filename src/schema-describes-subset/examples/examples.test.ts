@@ -18,13 +18,14 @@ describe('schema-describes-subset examples', () => {
     consoleLogMock.mockReset()
   })
 
-  const example0Filename = 'schema-describes-subset-0.example.ts'
+  const example0FilenameBase = 'schema-describes-subset-0.example'
+  const example0Filename = `${example0FilenameBase}.ts`
   test(`'${example0Filename}' logs the expected results`, async () => {
-    await import(`./${example0Filename}`)
+    await import(`./example-files/${example0FilenameBase}.ts`)
 
     await expect(
       await addConsoleLogResultComments(
-        path.join(import.meta.dirname, example0Filename),
+        path.join(import.meta.dirname, 'example-files', example0Filename),
         consoleLogMock.mock.calls,
         tsConfigFilename,
       ),

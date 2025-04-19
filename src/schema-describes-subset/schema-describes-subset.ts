@@ -58,8 +58,8 @@ import { schemaDescribesSubsetFactory } from './schema-describes-subset-factory.
  * ### How does this work?
  *
  * The implementation utilizes {@link schemaDescribesEmptySet} and the fact that
- * A ⊆ B if and only if A ∩ ¬B = ∅. (That relation should be obvious if
- * illustrated in a venn diagram.)
+ * A&nbsp;⊆&nbsp;B if and only if A&nbsp;∩&nbsp;¬B&nbsp;=&nbsp;∅. (That
+ * relation should be obvious if illustrated in a venn diagram.)
  *
  * It basically looks similar to this:
  *

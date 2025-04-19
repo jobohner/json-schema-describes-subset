@@ -45,7 +45,6 @@ import {
   createListOfAllLinks,
   createTypeDocOptions,
   MarkdownCompositionTypeDoc,
-  extractDescriptionForPackageJSONThrow,
   remapURLToSrc as remapURLToSrc_,
   getTypeDocFilename as getTypeDocFilename_,
 } from './utils/typedoc-composition.js'
@@ -265,16 +264,6 @@ await Promise.all([
           `).children,
         createListOfAllLinks(rootDirname, rootNodesByFilename),
       ],
-    }),
-  ),
-
-  writeFormattedFile(
-    path.join(rootDirname, 'package.json'),
-    JSON.stringify({
-      ...packageJSON,
-      description: extractDescriptionForPackageJSONThrow(
-        await readmeComposition.getRootNode(),
-      ),
     }),
   ),
 ])
