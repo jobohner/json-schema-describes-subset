@@ -203,13 +203,13 @@ the documentation files, so they can be checked manually.
 
 - [/docs/README.md#examples-for-currently-undetected-contradictions](/docs/README.md#examples-for-currently-undetected-contradictions)
 
-- [/src/dnf/dnf.ts#L600](/src/dnf/dnf.ts#L600)
+- [/src/dnf/dnf.ts#L601](/src/dnf/dnf.ts#L601)
 
 - [/src/dnf/dnf.ts#L440](/src/dnf/dnf.ts#L440)
 
-- [/src/derived/derived.ts#L59](/src/derived/derived.ts#L59)
+- [/src/derived/derived.ts#L60](/src/derived/derived.ts#L60)
 
-- [/src/derived/derived.ts#L29](/src/derived/derived.ts#L29)
+- [/src/derived/derived.ts#L30](/src/derived/derived.ts#L30)
 
 - <mailto:johannes.bohner@gmail.com>
 

@@ -19,10 +19,11 @@ describe(addConsoleLogResultComments, () => {
   })
 
   it('creates the expected result', async () => {
-    const testFilename = 'test-file-0.ts'
-    await import(`./test-files/${testFilename}`)
+    const testFilenameBase = 'test-file-0'
+    const testFilename = `${testFilenameBase}.ts`
+    await import(`./test-files/${testFilenameBase}.ts`)
 
-    expect(
+    await expect(
       await addConsoleLogResultComments(
         path.join(import.meta.dirname, 'test-files', testFilename),
         consoleLogMock.mock.calls,
@@ -32,7 +33,7 @@ describe(addConsoleLogResultComments, () => {
       path.join(import.meta.dirname, 'snapshots', testFilename),
     )
 
-    expect(
+    await expect(
       addConsoleLogResultComments(
         path.join(import.meta.dirname, 'test-files', testFilename),
         [...consoleLogMock.mock.calls, [0]],

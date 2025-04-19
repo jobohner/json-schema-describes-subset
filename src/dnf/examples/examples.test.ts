@@ -30,6 +30,7 @@ describe('dnf examples', async () => {
 
       const importFilename = path.join(
         import.meta.dirname,
+        'example-files',
         `${filenameBase}.example.js`,
       )
 
@@ -42,7 +43,11 @@ describe('dnf examples', async () => {
       const logged = JSON.stringify((logCalls[0] as unknown[])[0])
 
       const exampleFileContent = await fs.readFile(
-        path.join(import.meta.dirname, `${filenameBase}.example.ts`),
+        path.join(
+          import.meta.dirname,
+          'example-files',
+          `${filenameBase}.example.ts`,
+        ),
         'utf-8',
       )
 
@@ -66,12 +71,13 @@ describe('dnf examples', async () => {
   })
 
   test(`${schemaDescribesEmptySet.name} logs as expected`, async () => {
-    const example0Filename = 'schema-describes-empty-set-0.example.ts'
-    await import(`./${example0Filename}`)
+    const example0FilenameBase = 'schema-describes-empty-set-0.example'
+    const example0Filename = `${example0FilenameBase}.ts`
+    await import(`./example-files/${example0FilenameBase}.ts`)
 
     await expect(
       await addConsoleLogResultComments(
-        path.join(import.meta.dirname, example0Filename),
+        path.join(import.meta.dirname, 'example-files', example0Filename),
         consoleLogMock.mock.calls,
         tsConfigFilename,
       ),
