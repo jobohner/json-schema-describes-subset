@@ -36,7 +36,7 @@ import * as builtInPluginExports from '../src/built-in-plugins-collection.js'
 
 import { createContributorsSection } from './utils/contributors.js'
 import {
-  extractLeadTextThrow,
+  extractLeadText,
   MarkdownCompositions,
   fromMarkdown,
   toMarkdown,
@@ -110,7 +110,7 @@ const readmeComposition = new MarkdownCompositionTypeDoc({
     `,
   )
   .appendMarkdownFile(path.join(tmpDocsDirname, `${indexModuleName}.md`), {
-    preprocessNewRootContents: [extractLeadTextThrow],
+    preprocessNewRootContents: [extractLeadText({ throw: true })],
   })
   .appendMarkdownText(
     endent`
@@ -141,6 +141,15 @@ const readmeComposition = new MarkdownCompositionTypeDoc({
   .appendReflectionDocFile(toDNF)
   .appendReflectionDocFile(schemasAreEquivalent)
   .appendReflectionDocFile(schemaDescribesUniverse)
+  .appendMarkdownFile(path.join(rootDirname, `CONTRIBUTING.md`), {
+    preprocessNewRootContents: [
+      extractLeadText({ throw: true, includeTitle: true }),
+    ],
+    remapFilenameURL: false,
+  })
+  .appendMarkdownText(
+    `See [\`CONTRIBUTING.md\`](/CONTRIBUTING.md) for details.`,
+  )
   .appendMarkdownText(
     endent`
     # Contributors
@@ -209,7 +218,7 @@ const builtInPluginsComposition = new MarkdownCompositionTypeDoc({
   .appendMarkdownFile(
     path.join(tmpDocsDirname, `${builtInPluginsCollectionModuleName}.md`),
     {
-      preprocessNewRootContents: [extractLeadTextThrow],
+      preprocessNewRootContents: [extractLeadText({ throw: true })],
     },
   )
 
