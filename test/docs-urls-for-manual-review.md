@@ -211,6 +211,10 @@ the documentation files, so they can be checked manually.
 
 - [/src/derived/derived.ts#L30](/src/derived/derived.ts#L30)
 
+- [/CODE_OF_CONDUCT.md](/CODE_OF_CONDUCT.md)
+
+- [/CONTRIBUTING.md](/CONTRIBUTING.md)
+
 - <mailto:johannes.bohner@gmail.com>
 
 - [/LICENSE](/LICENSE)

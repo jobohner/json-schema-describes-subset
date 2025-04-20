@@ -974,6 +974,15 @@ here.
 Can't think of any 🤷‍♂️. This function was created only because it was so easy to
 do so.
 
+## Contributing
+
+Any kind of
+[feedback](https://github.com/jobohner/json-schema-describes-subset/issues) and
+code contribution is highly appreciated. Make sure to always adhere to this
+project's [code of conduct](/CODE_OF_CONDUCT.md)
+
+See [`CONTRIBUTING.md`](/CONTRIBUTING.md) for details.
+
 ## Contributors
 
 - Johannes Bohner <johannes.bohner@gmail.com>

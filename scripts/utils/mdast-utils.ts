@@ -97,21 +97,28 @@ export function dropTextBeforeHeading(nodes: RootContent[]): RootContent[] {
   return nodes.slice(firstHeadingIndex)
 }
 
-export function findHeading(nodes: RootContent[]): Heading | null {
+export function findHeading(nodes: Node[]): Heading | null {
   const headings = findAll(nodes, 'heading')
   return minBy(headings, 'depth') ?? null
 }
 
-export function extractLeadText<NodeType extends Node>(
-  content: NodeType[],
-): NodeType[] | null {
-  return splitArray(content, (node) => is(node, 'heading'))[1] ?? null
-}
+export function extractLeadText(
+  options: {
+    throw?: boolean | undefined
+    includeTitle?: boolean | undefined
+  } = {},
+) {
+  return function extractLeadText(content: RootContent[]): RootContent[] {
+    const [, leadText] = splitArray(content, (node) => is(node, 'heading'), {
+      includeSplitterElement: options.includeTitle ? 'prefix' : null,
+    })
 
-export function extractLeadTextThrow<NodeType extends Node>(
-  content: NodeType[],
-): NodeType[] {
-  return extractLeadText(content) ?? throwError(`couldn't extract lead text`)
+    if (leadText === undefined) {
+      return options.throw ? throwError(`couldn't extract lead text`) : []
+    }
+
+    return leadText
+  }
 }
 
 export type RootNodesByFilename = Record<string, Root>
@@ -211,6 +218,7 @@ export type PreprocessNewRootContents = (
 
 export interface MarkdownCompositionAppendOptions {
   filename?: string | undefined
+  remapFilenameURL?: boolean | undefined
   headingsDepthOffset?: number | undefined
   preprocessNewRootContents?: PreprocessNewRootContents[] | undefined
 }
@@ -249,7 +257,11 @@ export class MarkdownComposition {
     content: Root | RootContent[],
     options: MarkdownCompositionAppendOptions | undefined = {},
   ): void {
-    const { preprocessNewRootContents = [], filename } = options
+    const {
+      preprocessNewRootContents = [],
+      filename,
+      remapFilenameURL = true,
+    } = options
 
     let nodes = (Array.isArray(content) ? content : content.children).map(
       (node) => filter(node), // create copy
@@ -297,7 +309,7 @@ export class MarkdownComposition {
       this.hasTitle = true
     }
 
-    if (filename) {
+    if (filename && remapFilenameURL) {
       this.fileHeadingsMap[filename] = headings
     }
 
