@@ -67,6 +67,59 @@ describe(splitArray, () => {
       ]
     `)
   })
+
+  it('works with `includeSplitterElement`', () => {
+    expect(
+      splitArray([1, 2, 3, '4', '5', 6, 7, 8, '9'], isString, {
+        includeSplitterElement: 'prefix',
+      }),
+    ).toMatchInlineSnapshot(`
+      [
+        [
+          1,
+          2,
+          3,
+        ],
+        [
+          "4",
+        ],
+        [
+          "5",
+          6,
+          7,
+          8,
+        ],
+        [
+          "9",
+        ],
+      ]
+    `)
+
+    expect(
+      splitArray([1, 2, 3, '4', '5', 6, 7, 8, '9'], isString, {
+        includeSplitterElement: 'suffix',
+      }),
+    ).toMatchInlineSnapshot(`
+      [
+        [
+          1,
+          2,
+          3,
+          "4",
+        ],
+        [
+          "5",
+        ],
+        [
+          6,
+          7,
+          8,
+          "9",
+        ],
+        [],
+      ]
+    `)
+  })
 })
 
 describe(getElementsBetween, () => {

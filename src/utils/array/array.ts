@@ -10,13 +10,22 @@ export function createSameElementsArray<const ElementType>(
 export function splitArray<const ElementType>(
   array: ElementType[],
   predicate: (element: ElementType) => boolean,
+  options: {
+    includeSplitterElement?: 'prefix' | 'suffix' | null | undefined
+  } = {},
 ): ElementType[][] {
   let currentGroup: ElementType[] = []
   const result: ElementType[][] = [currentGroup]
 
   for (const element of array) {
     if (predicate(element)) {
+      if (options.includeSplitterElement === 'suffix') {
+        currentGroup.push(element)
+      }
       currentGroup = []
+      if (options.includeSplitterElement === 'prefix') {
+        currentGroup.push(element)
+      }
       result.push(currentGroup)
     } else {
       currentGroup.push(element)

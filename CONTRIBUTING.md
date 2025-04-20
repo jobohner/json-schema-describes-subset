@@ -2,7 +2,8 @@
 
 Any kind of
 [feedback](https://github.com/jobohner/json-schema-describes-subset/issues) and
-code contribution is appreciated.
+code contribution is highly appreciated. Make sure to always adhere to this
+project's [code of conduct](/CODE_OF_CONDUCT.md)
 
 ## Pull requests
 
