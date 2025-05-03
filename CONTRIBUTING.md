@@ -2,10 +2,13 @@
 
 Any kind of
 [feedback](https://github.com/jobohner/json-schema-describes-subset/issues) and
-code contribution is highly appreciated. Make sure to always adhere to this
-project's [code of conduct](/CODE_OF_CONDUCT.md)
+[code contribution](#pull-requests) is highly appreciated. Make sure to always
+adhere to this project's [code of conduct](/CODE_OF_CONDUCT.md)
 
 ## Pull requests
+
+New features are required to fall within
+[this project's scope](/docs/README.md#vision).
 
 In order to keep the
 [`main`](https://github.com/jobohner/json-schema-describes-subset) branch in

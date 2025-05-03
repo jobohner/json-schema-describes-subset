@@ -141,6 +141,7 @@ const readmeComposition = new MarkdownCompositionTypeDoc({
   .appendReflectionDocFile(toDNF)
   .appendReflectionDocFile(schemasAreEquivalent)
   .appendReflectionDocFile(schemaDescribesUniverse)
+  .appendTypeDocFile(path.join(tmpDocsDirname, 'Document.vision.md'))
   .appendMarkdownFile(path.join(rootDirname, `CONTRIBUTING.md`), {
     preprocessNewRootContents: [
       extractLeadText({ throw: true, includeTitle: true }),
@@ -198,7 +199,10 @@ const customizationComposition = new MarkdownCompositionTypeDoc({
   .appendReflectionDocFile('SimplificationPluginArguments', {
     headingsDepthOffset: 1,
   })
-  .appendMarkdownText(`# Predefined custom plugins`)
+  .appendMarkdownText(`# Predefined custom plugins`, {
+    // redirect all {@link custom-plugins} links to here
+    filename: path.join(tmpDocsDirname, 'custom-plugins.md'),
+  })
   .appendReflectionDocFile('formatPlugin', {
     moduleName: customPluginsModuleName,
     headingsDepthOffset: 1,
