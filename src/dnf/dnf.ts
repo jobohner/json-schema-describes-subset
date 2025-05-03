@@ -398,12 +398,18 @@ export type DNFFromOptions<Options_ extends Options | undefined> = DNF<
  * form](https://en.wikipedia.org/wiki/Disjunctive_normal_form) similar to the
  * one utilized by {@link schemaDescribesEmptySet}.
  *
- * Be aware that there is currently no option to recursively apply `toDNF` to
- * subschemas.
- *
  * @returns
  *
- * The resulting dnf will be simplified so that disjuncts that were determined
+ * The resulting dnf schema will be equivalent to the provided schema (meaning
+ * that it will accept the same data values) but all
+ * [boolean combinations](https://json-schema.org/understanding-json-schema/reference/combining)
+ * will be restructured.
+ *
+ * Subschemas that represent property values of a JSON object or elements of a
+ * JSON array do not represent boolean combinations. They are currently
+ * considered atomic for that purpose.
+ *
+ * The resulting dnf schema will be simplified so that disjuncts that were determined
  * to be unsatisfiable are already eliminated. If each disjunct was determined
  * to be unsatisfiable the return value is `false`.
  *

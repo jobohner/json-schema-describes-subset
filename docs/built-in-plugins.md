@@ -153,7 +153,7 @@ Defined in: [built-in-plugins/const.ts:53](/src/built-in-plugins/const.ts#L53)
 ##### simplify()
 
 > `readonly` **simplify**(`__namedParameters`):
-> [`ConjunctionSchema`](/src/plugin/plugin.ts#L117)<{ `allOf`: `never`\[]; }>
+> [`ConjunctionSchema`](/src/plugin/plugin.ts#L117)<{ `allOf?`: `never`\[]; }>
 
 ###### Parameters
 
@@ -163,7 +163,7 @@ Defined in: [built-in-plugins/const.ts:53](/src/built-in-plugins/const.ts#L53)
 
 ###### Returns
 
-[`ConjunctionSchema`](/src/plugin/plugin.ts#L117)<{ `allOf`: `never`\[]; }>
+[`ConjunctionSchema`](/src/plugin/plugin.ts#L117)<{ `allOf?`: `never`\[]; }>
 
 ### `numberSimplification`
 

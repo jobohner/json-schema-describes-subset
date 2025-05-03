@@ -612,7 +612,7 @@ be returned. See [JSONSchema](#jsonschema) for details.
 
 > **schemaDescribesEmptySet**(`schema`, `options?`): `null` | `boolean`
 
-Defined in: [dnf/dnf.ts:601](/src/dnf/dnf.ts#L601)
+Defined in: [dnf/dnf.ts:607](/src/dnf/dnf.ts#L607)
 
 Tries to determine whether the provided JSON Schema is unsatisfiable and
 therefore describes the empty set. In that case, the schema would be equivalent
@@ -677,15 +677,12 @@ returned.
 
 > **toDNF**<`Options_`>(`schema`, `options?`): `DNFFromOptions`<`Options_`>
 
-Defined in: [dnf/dnf.ts:440](/src/dnf/dnf.ts#L440)
+Defined in: [dnf/dnf.ts:446](/src/dnf/dnf.ts#L446)
 
 Transforms the given schema to a
 [disjunctive normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form)
 similar to the one utilized by
 [schemaDescribesEmptySet](#schemadescribesemptyset).
-
-Be aware that there is currently no option to recursively apply `toDNF` to
-subschemas.
 
 ### Type Parameters
 
@@ -704,9 +701,18 @@ subschemas.
 
 `DNFFromOptions`<`Options_`>
 
-The resulting dnf will be simplified so that disjuncts that were determined to
-be unsatisfiable are already eliminated. If each disjunct was determined to be
-unsatisfiable the return value is `false`.
+The resulting dnf schema will be equivalent to the provided schema (meaning that
+it will accept the same data values) but all
+[boolean combinations](https://json-schema.org/understanding-json-schema/reference/combining)
+will be restructured.
+
+Subschemas that represent property values of a JSON object or elements of a JSON
+array do not represent boolean combinations. They are currently considered
+atomic for that purpose.
+
+The resulting dnf schema will be simplified so that disjuncts that were
+determined to be unsatisfiable are already eliminated. If each disjunct was
+determined to be unsatisfiable the return value is `false`.
 
 The return type's most general form (without specified [plugin](#plugins) types,
 for example returned by `toDNF<Options>(...)`) is equivalent to:
@@ -974,12 +980,55 @@ here.
 Can't think of any 🤷‍♂️. This function was created only because it was so easy to
 do so.
 
+## Vision
+
+This project is under active development. The following tries to deliver an idea
+of what future changes might (or might not) include.
+
+### What this project does _not_ try to achieve
+
+The following does not fall within this project's scope:
+
+- Create a JSON Schema validation tool
+
+  There already are good validation solutions. For this project
+  [Ajv](https://ajv.js.org/json-schema.html#draft-2020-12) is used internally
+  for validation. This is regarded by of this project's functions. For example,
+  if [schemaDescribesEmptySet](#schemadescribesemptyset) returns true, there
+  isn't any value that would satisfy the schema according to Ajv.
+
+  (Technically it would actually be fairly easy to switch to another validation
+  solution)
+
+- Support of older JSON Schema drafts
+
+  This project tries to always support the latest JSON Schema draft (currently
+  2020-12). You could try to convert your schemas that are built according to an
+  older draft before passing them to any of this project's functions using a
+  tool like [alterschema](https://github.com/sourcemeta-research/alterschema).
+
+### What this project _does_ try to achieve
+
+The main focus of this project is its eponymous function
+[schemaDescribesSubset](#schemadescribessubset). A major goal is to minimize
+[false negative (`null`) results](#limitations) while simultaneously making sure
+that a boolean result is always true positive/true negative. One way to get
+closer to that goal is to add or optimize support for
+[standard keywords](#limitations).
+
+Additional
+[predefined custom plugins](/docs/customization.md#predefined-custom-plugins)
+might be added to support more non standard keywords, if they are very common.
+
+Another goal is to increase the number of cases where a boolean result is
+returned.
+
 ## Contributing
 
 Any kind of
 [feedback](https://github.com/jobohner/json-schema-describes-subset/issues) and
-code contribution is highly appreciated. Make sure to always adhere to this
-project's [code of conduct](/CODE_OF_CONDUCT.md)
+[code contribution](/CONTRIBUTING.md#pull-requests) is highly appreciated. Make
+sure to always adhere to this project's [code of conduct](/CODE_OF_CONDUCT.md)
 
 See [`CONTRIBUTING.md`](/CONTRIBUTING.md) for details.
 
