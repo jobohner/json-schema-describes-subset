@@ -203,13 +203,19 @@ the documentation files, so they can be checked manually.
 
 - [/docs/README.md#examples-for-currently-undetected-contradictions](/docs/README.md#examples-for-currently-undetected-contradictions)
 
-- [/src/dnf/dnf.ts#L601](/src/dnf/dnf.ts#L601)
+- [/src/dnf/dnf.ts#L607](/src/dnf/dnf.ts#L607)
 
-- [/src/dnf/dnf.ts#L440](/src/dnf/dnf.ts#L440)
+- [/src/dnf/dnf.ts#L446](/src/dnf/dnf.ts#L446)
+
+- <https://json-schema.org/understanding-json-schema/reference/combining>
 
 - [/src/derived/derived.ts#L60](/src/derived/derived.ts#L60)
 
 - [/src/derived/derived.ts#L30](/src/derived/derived.ts#L30)
+
+- [/docs/customization.md#predefined-custom-plugins](/docs/customization.md#predefined-custom-plugins)
+
+- [/CONTRIBUTING.md#pull-requests](/CONTRIBUTING.md#pull-requests)
 
 - [/CODE_OF_CONDUCT.md](/CODE_OF_CONDUCT.md)
 
